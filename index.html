@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Décoratrice Événementielle | Mariages • Anniversaires • Baby showers</title>
+  <meta name="description" content="Site vitrine haut de gamme pour décoratrice événementielle : mariages, anniversaires, baby showers, EVJF et événements festifs. Devis rapide." />
+  <meta name="theme-color" content="#ff7aa2" />
+
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://source.unsplash.com" crossorigin>
+
+  <style>
+    :root{
+      --rose:#ff7aa2;
+      --saumon:#ff8f7a;
+      --jaune:#ffd166;
+      --vert:#bfe8d4;  /* vert pâle */
+      --fond:#fff7fb;
+      --encre:#1f2430;
+      --muted:#5b6476;
+      --card:rgba(255,255,255,.72);
+      --stroke:rgba(31,36,48,.10);
+      --shadow: 0 18px 60px rgba(31,36,48,.14);
+      --radius: 22px;
+      --radius2: 28px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--encre);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(255,122,162,.22), transparent 55%),
+        radial-gradient(1000px 600px at 80% 0%, rgba(255,209,102,.20), transparent 52%),
+        radial-gradient(900px 550px at 85% 65%, rgba(191,232,212,.28), transparent 55%),
+        linear-gradient(180deg, #fff, var(--fond));
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .chip{
+      display:inline-flex; align-items:center; gap:10px;
+      background:rgba(255,255,255,.75);
+      border:1px solid var(--stroke);
+      padding:10px 14px;
+      border-radius:999px;
+      box-shadow:0 8px 24px rgba(31,36,48,.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-size:14px; color:var(--muted);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: conic-gradient(from 180deg, var(--rose), var(--saumon), var(--jaune), var(--vert), var(--rose));
+      box-shadow:0 6px 16px rgba(255,122,162,.35);
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(255,255,255,.58);
+      border-bottom:1px solid rgba(31,36,48,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.8), transparent 70%),
+        linear-gradient(135deg, var(--rose), var(--saumon), var(--jaune));
+      box-shadow: 0 12px 34px rgba(255,122,162,.28);
+      border:1px solid rgba(255,255,255,.6);
+    }
+    .brand b{font-size:15px; letter-spacing:.2px}
+    .brand span{font-size:12px; color:var(--muted); display:block; margin-top:2px}
+    nav ul{
+      list-style:none; padding:0; margin:0;
+      display:flex; gap:18px; align-items:center;
+    }
+    nav a{
+      text-decoration:none;
+      font-size:14px;
+      color:var(--muted);
+      padding:10px 10px;
+      border-radius:12px;
+      transition:.2s ease;
+    }
+    nav a:hover{background:rgba(255,122,162,.10); color:var(--encre)}
+    .actions{display:flex; gap:10px; align-items:center}
+    .btn{
+      border:1px solid rgba(31,36,48,.10);
+      background:rgba(255,255,255,.75);
+      color:var(--encre);
+      padding:10px 14px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      box-shadow:0 10px 28px rgba(31,36,48,.08);
+      transition:.2s ease;
+      display:inline-flex; align-items:center; gap:10px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow:0 18px 46px rgba(31,36,48,.14)}
+    .btn.primary{
+      border:1px solid rgba(255,122,162,.25);
+      background: linear-gradient(135deg, rgba(255,122,162,.95), rgba(255,143,122,.95), rgba(255,209,102,.92));
+      color:#fff;
+      box-shadow:0 18px 60px rgba(255,122,162,.24);
+    }
+    .btn.primary:hover{box-shadow:0 24px 70px rgba(255,122,162,.30)}
+    .icon{
+      width:18px; height:18px; display:inline-block;
+    }
+
+    /* Hero */
+    .hero{
+      padding:64px 0 32px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .hero h1{
+      margin:14px 0 14px;
+      font-size: clamp(34px, 4.6vw, 54px);
+      line-height:1.03;
+      letter-spacing:-.6px;
+    }
+    .hero p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.7;
+      max-width: 58ch;
+    }
+    .badges{
+      display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 18px;
+    }
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+    .kpi{
+      background:rgba(255,255,255,.66);
+      border:1px solid rgba(31,36,48,.08);
+      border-radius:18px;
+      padding:14px 14px;
+      box-shadow:0 16px 46px rgba(31,36,48,.10);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .kpi b{display:block; font-size:16px}
+    .kpi span{display:block; margin-top:4px; color:var(--muted); font-size:13px; line-height:1.35}
+
+    .hero-card{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.75);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(255,122,162,.25), transparent 60%),
+        radial-gradient(700px 420px at 70% 10%, rgba(255,209,102,.22), transparent 58%),
+        rgba(255,255,255,.55);
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 420px;
+    }
+    .hero-photo{
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(180deg, rgba(31,36,48,.10), rgba(31,36,48,.42)),
+        url("https://images.unsplash.com/photo-1523438097201-512ae7d59c0f?auto=format&fit=crop&w=1400&q=80");
+      background-size:cover;
+      background-position:center;
+      transform: scale(1.02);
+      filter:saturate(1.05);
+    }
+    .hero-float{
+      position:absolute; left:18px; right:18px; bottom:18px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(31,36,48,.10);
+      border-radius: 22px;
+      padding:14px 14px;
+      box-shadow:0 22px 62px rgba(31,36,48,.18);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display:flex; gap:12px; align-items:flex-start;
+    }
+    .heart{
+      width:44px; height:44px; border-radius:16px;
+      background: linear-gradient(135deg, rgba(255,122,162,.95), rgba(255,143,122,.95), rgba(255,209,102,.92));
+      display:grid; place-items:center;
+      color:#fff;
+      box-shadow:0 16px 46px rgba(255,122,162,.26);
+      flex:0 0 auto;
+    }
+    .hero-float b{display:block}
+    .hero-float span{display:block; color:var(--muted); margin-top:2px; font-size:13px; line-height:1.4}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:18px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: clamp(22px, 2.3vw, 30px);
+      letter-spacing:-.2px;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width: 62ch;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .grid3{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px}
+    .grid2{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px}
+
+    .card{
+      background:rgba(255,255,255,.68);
+      border:1px solid rgba(31,36,48,.08);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow:0 18px 56px rgba(31,36,48,.10);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.65; font-size:14px}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(31,36,48,.08);
+      background:rgba(255,255,255,.70);
+      color:var(--muted);
+    }
+    .tag.rose{border-color:rgba(255,122,162,.25); background:rgba(255,122,162,.10); color:#6a2b3f}
+    .tag.jaune{border-color:rgba(255,209,102,.35); background:rgba(255,209,102,.16); color:#6b541a}
+    .tag.vert{border-color:rgba(191,232,212,.55); background:rgba(191,232,212,.22); color:#1e5c46}
+
+    /* Prestations cards with photo */
+    .service{
+      padding:0;
+      overflow:hidden;
+    }
+    .service .thumb{
+      height:150px;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+    }
+    .service .thumb::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(31,36,48,.06), rgba(31,36,48,.46));
+    }
+    .service .body{padding:16px 18px 18px}
+    .service .body h3{color:#141824}
+    .service .body ul{
+      margin:10px 0 0; padding-left:18px;
+      color:var(--muted); font-size:14px; line-height:1.6;
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .gitem{
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.75);
+      box-shadow: 0 18px 56px rgba(31,36,48,.12);
+      position:relative;
+      min-height: 180px;
+      background:#fff;
+    }
+    .gitem img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      transform: scale(1.03);
+      filter:saturate(1.05);
+    }
+    .gitem::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 45%, rgba(31,36,48,.42));
+      pointer-events:none;
+    }
+    .gitem .label{
+      position:absolute; left:14px; bottom:12px;
+      color:#fff;
+      font-weight:700;
+      text-shadow: 0 6px 22px rgba(0,0,0,.28);
+      font-size:13px;
+      letter-spacing:.2px;
+    }
+    .span7{grid-column: span 7}
+    .span5{grid-column: span 5}
+    .span4{grid-column: span 4}
+    .span8{grid-column: span 8}
+
+    /* Process */
+    .steps{counter-reset: step}
+    .step{
+      position:relative;
+      padding-left:56px;
+    }
+    .step::before{
+      counter-increment: step;
+      content: counter(step);
+      position:absolute; left:16px; top:16px;
+      width:30px; height:30px;
+      border-radius:12px;
+      display:grid; place-items:center;
+      font-weight:800;
+      color:#fff;
+      background: linear-gradient(135deg, var(--rose), var(--saumon), var(--jaune));
+      box-shadow:0 18px 46px rgba(255,122,162,.24);
+    }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .contact a.link{
+      display:flex; gap:12px; align-items:center;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(31,36,48,.08);
+      background:rgba(255,255,255,.72);
+      text-decoration:none;
+      box-shadow:0 16px 46px rgba(31,36,48,.10);
+      transition:.2s ease;
+    }
+    .contact a.link:hover{transform:translateY(-1px)}
+    .pill{
+      width:44px; height:44px; border-radius:16px;
+      display:grid; place-items:center;
+      color:#fff;
+      background: linear-gradient(135deg, rgba(255,122,162,.95), rgba(255,143,122,.95), rgba(255,209,102,.92));
+      box-shadow:0 16px 46px rgba(255,122,162,.24);
+      flex:0 0 auto;
+    }
+    .contact a.link b{display:block}
+    .contact a.link span{display:block; color:var(--muted); font-size:13px; margin-top:2px}
+
+    form{
+      display:grid; gap:10px;
+      margin-top:10px;
+    }
+    label{font-size:12px; color:var(--muted)}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(31,36,48,.10);
+      background:rgba(255,255,255,.80);
+      outline:none;
+      font:inherit;
+    }
+    textarea{min-height:120px; resize:vertical}
+    input:focus, textarea:focus{
+      border-color: rgba(255,122,162,.45);
+      box-shadow: 0 0 0 6px rgba(255,122,162,.12);
+    }
+    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
+
+    footer{
+      padding:28px 0 40px;
+      color:var(--muted);
+    }
+    .foot{
+      display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
+      border-top:1px solid rgba(31,36,48,.08);
+      padding-top:18px;
+    }
+
+    /* Mobile */
+    .burger{display:none}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr; }
+      .hero-card{min-height: 360px}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .span7,.span5,.span4,.span8{grid-column: span 12}
+      nav ul{display:none}
+      .burger{display:inline-flex}
+    }
+
+    /* Smooth anchor offset for sticky header */
+    :target{scroll-margin-top:90px}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Retour en haut de page">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <b>Décoration Événementielle</b>
+          <span>Élégante • Chaleureuse • Joyeuse</span>
+        </div>
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="#prestations">Prestations</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#methode">Méthode</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <a class="btn" href="tel:+33767058731" aria-label="Appeler">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.7 3.3.8.6.1 1.1.6 1.1 1.2V21c0 .7-.6 1.2-1.3 1.2C10.7 22.2 1.8 13.3 1.8 2.3 1.8 1.6 2.4 1 3.1 1h3.4c.6 0 1.1.5 1.2 1.1.1 1.1.4 2.2.8 3.3.1.4 0 .9-.2 1.2L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+          Appeler
+        </a>
+        <a class="btn primary" href="#contact">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 7 10 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Demander un devis
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="chip"><span class="dot"></span> Décoratrice événementielle • Diplômée en événementiel</span>
+
+          <h1>Des décors qui font <span style="background:linear-gradient(135deg,var(--rose),var(--saumon),var(--jaune)); -webkit-background-clip:text; background-clip:text; color:transparent;">vibrer</span> vos moments les plus précieux.</h1>
+
+          <p>
+            Je conçois des ambiances sur-mesure, élégantes et lumineuses, pour transformer votre événement en souvenir inoubliable.
+            De la première idée à l’installation finale, je vous accompagne avec une organisation rassurante et un œil décoratif exigeant.
+          </p>
+
+          <div class="badges">
+            <span class="tag rose">Palette rose & saumon</span>
+            <span class="tag jaune">Touches jaune solaire</span>
+            <span class="tag vert">Vert pâle & douceur</span>
+            <span class="tag">Conseils & scénographie</span>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+            <a class="btn primary" href="#prestations">Découvrir mes prestations</a>
+            <a class="btn" href="mailto:saindounaida@gmail.com?subject=Demande%20de%20devis%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle&body=Bonjour%20%2C%0A%0AJe%20souhaite%20un%20devis%20pour%20un%20%C3%A9v%C3%A9nement%20(%3Atype%2C%20date%2C%20lieu%2C%20nombre%20d%E2%80%99invit%C3%A9s%2C%20style%20souhait%C3%A9).%0A%0AMerci%20%21">
+              Envoyer un email
+            </a>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <b>Design sur-mesure</b>
+              <span>Une déco cohérente, harmonieuse et fidèle à votre style.</span>
+            </div>
+            <div class="kpi">
+              <b>Installation & mise en scène</b>
+              <span>Je gère les détails le jour J pour que vous profitiez.</span>
+            </div>
+            <div class="kpi">
+              <b>Rendu “waouh”</b>
+              <span>Une ambiance qui suscite l’émotion dès l’entrée.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Aperçu décoration événementielle">
+          <div class="hero-photo" role="img" aria-label="Décoration événementielle élégante"></div>
+          <div class="hero-float">
+            <div class="heart" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s-7-4.7-9.5-9.2C.5 8.1 2.5 5 6 5c2 0 3.3 1.1 4 2.1C10.7 6.1 12 5 14 5c3.5 0 5.5 3.1 3.5 6.8C19 16.3 12 21 12 21Z" fill="white" opacity=".95"/>
+              </svg>
+            </div>
+            <div>
+              <b>Diplômée en événementiel</b>
+              <span>Une approche pro : écoute, planning, moodboard, scénographie & finitions.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PRESTATIONS -->
+    <section id="prestations">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Prestations</h2>
+            <p>Chaque formule s’adapte à votre budget, votre lieu et l’ambiance souhaitée. Le but : une déco cohérente, photogénique et pleine d’émotion.</p>
+          </div>
+          <span class="chip"><span class="dot"></span> Devis rapide • Réponse sous 24–48h</span>
+        </div>
+
+        <div class="grid3">
+          <article class="card service">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1529634892931-bfd1d9f4c6f0?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="body">
+              <h3>Mariages</h3>
+              <p>Une scénographie élégante qui raconte votre histoire.</p>
+              <ul>
+                <li>Arche, cérémonie laïque, allées, chaises</li>
+                <li>Centre de table, plan de table, photobooth</li>
+                <li>Palette couleurs, fleurs, bougies, textiles</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag rose">Romantique</span>
+                <span class="tag jaune">Lumineux</span>
+                <span class="tag">Haut de gamme</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card service">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="body">
+              <h3>Anniversaires</h3>
+              <p>Une ambiance festive et joyeuse, pensée pour les photos.</p>
+              <ul>
+                <li>Décor de fond, ballons, guirlandes, néons</li>
+                <li>Table sweet table / candy bar</li>
+                <li>Thème, accessoires & personnalisation</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag jaune">Festif</span>
+                <span class="tag">Photogénique</span>
+                <span class="tag vert">Douceur</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card service">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="body">
+              <h3>Baby showers</h3>
+              <p>Un décor tendre, lumineux et délicat pour célébrer bébé.</p>
+              <ul>
+                <li>Arche ballons, panneaux, urne, jeux</li>
+                <li>Centre de table, vaisselle & textiles</li>
+                <li>Ambiance pastel & détails soignés</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag vert">Pastel</span>
+                <span class="tag rose">Délicat</span>
+                <span class="tag">Sur-mesure</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card service">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1528460033278-a6ba57020470?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="body">
+              <h3>EVJF</h3>
+              <p>Une déco glamour, fun et mémorable pour votre journée.</p>
+              <ul>
+                <li>Photobooth, accessoires, décoration de table</li>
+                <li>Ambiance chic & pétillante</li>
+                <li>Options “surprise” et détails personnalisés</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag rose">Glam</span>
+                <span class="tag jaune">Pétillant</span>
+                <span class="tag">Fun</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card service">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="body">
+              <h3>Événements festifs</h3>
+              <p>Soirées, fiançailles, baptêmes, garden party…</p>
+              <ul>
+                <li>Ambiance, éclairage, fleurs, textures</li>
+                <li>Mise en scène et harmonisation du lieu</li>
+                <li>Décors “wow” pour vos invités</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag">Scénographie</span>
+                <span class="tag vert">Harmonieux</span>
+                <span class="tag jaune">Chaleureux</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card service">
+            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519222970733-f546218fa6d7?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="body">
+              <h3>Options à la carte</h3>
+              <p>Pour compléter votre décor ou gagner du temps.</p>
+              <ul>
+                <li>Conception moodboard & palette couleurs</li>
+                <li>Location éléments déco (selon dispo)</li>
+                <li>Installation / désinstallation</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag">Flexible</span>
+                <span class="tag rose">Premium</span>
+                <span class="tag">Pratique</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section id="galerie">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Galerie d’inspirations</h2>
+            <p>Des visuels libres de droits (Unsplash) pour refléter l’univers : élégance, lumière, couleurs et finitions.</p>
+          </div>
+          <a class="btn" href="#contact">Je veux ce style</a>
+        </div>
+
+        <div class="gallery" aria-label="Galerie photos">
+          <figure class="gitem span7">
+            <img loading="lazy" alt="Décoration de table élégante" src="https://images.unsplash.com/photo-1523438097201-512ae7d59c0f?auto=format&fit=crop&w=1600&q=80">
+            <figcaption class="label">Ambiance élégante</figcaption>
+          </figure>
+          <figure class="gitem span5">
+            <img loading="lazy" alt="Ballons et décor de fête" src="https://images.unsplash.com/photo-1528460033278-a6ba57020470?auto=format&fit=crop&w=1400&q=80">
+            <figcaption class="label">Arches & ballons</figcaption>
+          </figure>
+          <figure class="gitem span4">
+            <img loading="lazy" alt="Décoration florale" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80">
+            <figcaption class="label">Fleurs & détails</figcaption>
+          </figure>
+          <figure class="gitem span8">
+            <img loading="lazy" alt="Décor de mariage lumineux" src="https://images.unsplash.com/photo-1529634892931-bfd1d9f4c6f0?auto=format&fit=crop&w=1800&q=80">
+            <figcaption class="label">Mariage lumineux</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODE -->
+    <section id="methode">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Ma méthode (simple & rassurante)</h2>
+            <p>Un accompagnement clair, pour une organisation fluide et un rendu final parfaitement harmonieux.</p>
+          </div>
+        </div>
+
+        <div class="grid2 steps">
+          <div class="card step">
+            <h3>1) Échange & compréhension</h3>
+            <p>On parle de votre événement, vos envies, votre lieu, vos contraintes et votre budget. Je collecte l’essentiel pour viser juste.</p>
+          </div>
+          <div class="card step">
+            <h3>2) Moodboard & proposition</h3>
+            <p>Je prépare une direction artistique : palette rose/saumon/jaune/vert pâle (ou autre), matières, inspirations et éléments déco.</p>
+          </div>
+          <div class="card step">
+            <h3>3) Préparation & planification</h3>
+            <p>Je sécurise les détails : timing, installation, mise en scène, liste des éléments. Vous avancez sereinement.</p>
+          </div>
+          <div class="card step">
+            <h3>4) Installation & effet “waouh”</h3>
+            <p>Le jour J, je mets en place, j’ajuste les finitions et l’éclairage pour un résultat photo-ready.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Contact & devis</h2>
+            <p>Dites-moi la date, le lieu, le type d’événement et l’ambiance souhaitée. Je vous réponds rapidement.</p>
+          </div>
+          <span class="chip"><span class="dot"></span> Email + téléphone affichés • Réponse rapide</span>
+        </div>
+
+        <div class="contact">
+          <div class="card">
+            <h3>Coordonnées</h3>
+            <p>Choisissez le moyen le plus simple pour vous :</p>
+
+            <div style="display:grid; gap:10px; margin-top:12px;">
+              <a class="link" href="mailto:saindounaida@gmail.com?subject=Demande%20de%20devis%20-%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle">
+                <div class="pill" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 6h16v12H4V6Z" stroke="white" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="m4 7 8 6 8-6" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>📧 saindounaida@gmail.com</b>
+                  <span>Envoyer un message (devis, questions, disponibilités)</span>
+                </div>
+              </a>
+
+              <a class="link" href="tel:+33767058731">
+                <div class="pill" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.7 3.3.8.6.1 1.1.6 1.1 1.2V21c0 .7-.6 1.2-1.3 1.2C10.7 22.2 1.8 13.3 1.8 2.3 1.8 1.6 2.4 1 3.1 1h3.4c.6 0 1.1.5 1.2 1.1.1 1.1.4 2.2.8 3.3.1.4 0 .9-.2 1.2L6.6 10.8Z" fill="white" opacity=".95"/>
+                  </svg>
+                </div>
+                <div>
+                  <b>📞 07 67 05 87 31</b>
+                  <span>Appel / WhatsApp (si vous préférez)</span>
+                </div>
+              </a>
+            </div>
+
+            <div style="margin-top:14px" class="tagrow">
+              <span class="tag">Mariage</span>
+              <span class="tag">Anniversaire</span>
+              <span class="tag">Baby shower</span>
+              <span class="tag">EVJF</span>
+              <span class="tag">Événement festif</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Pré-remplir un email (rapide)</h3>
+            <p>Ce formulaire ouvre votre messagerie avec un message prêt à envoyer.</p>
+
+            <form id="quoteForm">
+              <div class="form-row">
+                <div>
+                  <label for="name">Nom</label>
+                  <input id="name" name="name" placeholder="Votre nom" autocomplete="name" />
+                </div>
+                <div>
+                  <label for="phone">Téléphone</label>
+                  <input id="phone" name="phone" placeholder="Votre numéro" autocomplete="tel" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label for="type">Type d’événement</label>
+                  <input id="type" name="type" placeholder="Mariage, anniversaire, baby shower..." />
+                </div>
+                <div>
+                  <label for="date">Date</label>
+                  <input id="date" name="date" placeholder="JJ/MM/AAAA" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label for="city">Lieu / Ville</label>
+                  <input id="city" name="city" placeholder="Ville + lieu (si connu)" />
+                </div>
+                <div>
+                  <label for="guests">Nombre d’invités</label>
+                  <input id="guests" name="guests" placeholder="Ex : 40" inputmode="numeric" />
+                </div>
+              </div>
+
+              <div>
+                <label for="style">Ambiance souhaitée</label>
+                <textarea id="style" name="style" placeholder="Décrivez votre style (couleurs, thème, inspirations, contraintes, budget indicatif...)"></textarea>
+              </div>
+
+              <button class="btn primary" type="submit">Ouvrir l’email prêt à envoyer</button>
+              <small style="color:var(--muted); line-height:1.5;">
+                Astuce : ajoutez des photos d’inspiration dans l’email pour que je cerne votre univers au plus juste.
+              </small>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:14px;"></div>
+        <div>
+          <div style="font-weight:800; color:var(--encre);">Décoration Événementielle</div>
+          <div style="font-size:13px;">© <span id="year"></span> • Tous droits réservés</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="mailto:saindounaida@gmail.com">Email</a>
+        <a class="btn" href="tel:+33767058731">Téléphone</a>
+        <a class="btn" href="#top">Haut de page</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Année
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Form => mailto pré-rempli
+    const form = document.getElementById("quoteForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const v = (id) => (document.getElementById(id).value || "").trim();
+
+      const name   = v("name");
+      const phone  = v("phone");
+      const type   = v("type");
+      const date   = v("date");
+      const city   = v("city");
+      const guests = v("guests");
+      const style  = v("style");
+
+      const subject = `Demande de devis - ${type || "Décoration événementielle"}`;
+      const body =
+`Bonjour,
+
+Je souhaite un devis pour :
+- Type d’événement : ${type || "(à préciser)"}
+- Date : ${date || "(à préciser)"}
+- Lieu / Ville : ${city || "(à préciser)"}
+- Nombre d’invités : ${guests || "(à préciser)"}
+
+Mes coordonnées :
+- Nom : ${name || "(à préciser)"}
+- Téléphone : ${phone || "(à préciser)"}
+
+Ambiance / détails :
+${style || "(décrivez ici vos envies, couleurs, thème, budget indicatif, contraintes du lieu…)"}
+
+Merci !`;
+
+      const mailto = `mailto:saindounaida@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
