@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Décoratrice Événementielle | Mariages • Anniversaires • Baby showers</title>
-  <meta name="description" content="Site vitrine haut de gamme pour décoratrice événementielle : mariages, anniversaires, baby showers, EVJF et événements festifs. Devis rapide." />
+  <meta name="description" content="Décoratrice événementielle diplômée : mariages, anniversaires, baby showers, EVJF et événements festifs. Devis rapide." />
   <meta name="theme-color" content="#ff7aa2" />
 
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -15,11 +15,10 @@
       --rose:#ff7aa2;
       --saumon:#ff8f7a;
       --jaune:#ffd166;
-      --vert:#bfe8d4;  /* vert pâle */
+      --vert:#bfe8d4;
       --fond:#fff7fb;
       --encre:#1f2430;
       --muted:#5b6476;
-      --card:rgba(255,255,255,.72);
       --stroke:rgba(31,36,48,.10);
       --shadow: 0 18px 60px rgba(31,36,48,.14);
       --radius: 22px;
@@ -42,6 +41,9 @@
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    section{padding:56px 0}
+    :target{scroll-margin-top:90px}
+
     .chip{
       display:inline-flex; align-items:center; gap:10px;
       background:rgba(255,255,255,.75);
@@ -54,7 +56,7 @@
       font-size:14px; color:var(--muted);
     }
     .dot{
-      width:10px; height:10px; border-radius:99px;
+      width:10px; height:10px; border-radius:999px;
       background: conic-gradient(from 180deg, var(--rose), var(--saumon), var(--jaune), var(--vert), var(--rose));
       box-shadow:0 6px 16px rgba(255,122,162,.35);
     }
@@ -70,10 +72,12 @@
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 0;
+      gap:12px;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
       text-decoration:none;
+      min-width: 220px;
     }
     .logo{
       width:38px; height:38px; border-radius:14px;
@@ -82,12 +86,15 @@
         linear-gradient(135deg, var(--rose), var(--saumon), var(--jaune));
       box-shadow: 0 12px 34px rgba(255,122,162,.28);
       border:1px solid rgba(255,255,255,.6);
+      flex:0 0 auto;
     }
     .brand b{font-size:15px; letter-spacing:.2px}
     .brand span{font-size:12px; color:var(--muted); display:block; margin-top:2px}
+
+    nav{display:flex; align-items:center; gap:10px}
     nav ul{
       list-style:none; padding:0; margin:0;
-      display:flex; gap:18px; align-items:center;
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
     }
     nav a{
       text-decoration:none;
@@ -98,7 +105,9 @@
       transition:.2s ease;
     }
     nav a:hover{background:rgba(255,122,162,.10); color:var(--encre)}
-    .actions{display:flex; gap:10px; align-items:center}
+    nav a.active{background:rgba(255,122,162,.14); color:var(--encre); font-weight:800}
+
+    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
     .btn{
       border:1px solid rgba(31,36,48,.10);
       background:rgba(255,255,255,.75);
@@ -106,7 +115,7 @@
       padding:10px 14px;
       border-radius:14px;
       text-decoration:none;
-      font-weight:600;
+      font-weight:800;
       font-size:14px;
       box-shadow:0 10px 28px rgba(31,36,48,.08);
       transition:.2s ease;
@@ -121,16 +130,9 @@
       color:#fff;
       box-shadow:0 18px 60px rgba(255,122,162,.24);
     }
-    .btn.primary:hover{box-shadow:0 24px 70px rgba(255,122,162,.30)}
-    .icon{
-      width:18px; height:18px; display:inline-block;
-    }
 
     /* Hero */
-    .hero{
-      padding:64px 0 32px;
-      position:relative;
-    }
+    .hero{padding:64px 0 32px}
     .hero-grid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -150,9 +152,7 @@
       line-height:1.7;
       max-width: 58ch;
     }
-    .badges{
-      display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 18px;
-    }
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 18px}
     .kpis{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
@@ -163,7 +163,7 @@
       background:rgba(255,255,255,.66);
       border:1px solid rgba(31,36,48,.08);
       border-radius:18px;
-      padding:14px 14px;
+      padding:14px;
       box-shadow:0 16px 46px rgba(31,36,48,.10);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -175,10 +175,7 @@
       border-radius: var(--radius2);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.75);
-      background:
-        radial-gradient(900px 500px at 20% 10%, rgba(255,122,162,.25), transparent 60%),
-        radial-gradient(700px 420px at 70% 10%, rgba(255,209,102,.22), transparent 58%),
-        rgba(255,255,255,.55);
+      background:rgba(255,255,255,.55);
       box-shadow: var(--shadow);
       position:relative;
       min-height: 420px;
@@ -198,7 +195,7 @@
       background:rgba(255,255,255,.78);
       border:1px solid rgba(31,36,48,.10);
       border-radius: 22px;
-      padding:14px 14px;
+      padding:14px;
       box-shadow:0 22px 62px rgba(31,36,48,.18);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -216,7 +213,6 @@
     .hero-float span{display:block; color:var(--muted); margin-top:2px; font-size:13px; line-height:1.4}
 
     /* Sections */
-    section{padding:56px 0}
     .section-head{
       display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:18px;
     }
@@ -247,6 +243,7 @@
     }
     .card h3{margin:0 0 8px; font-size:16px}
     .card p{margin:0; color:var(--muted); line-height:1.65; font-size:14px}
+
     .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
     .tag{
       font-size:12px;
@@ -261,10 +258,7 @@
     .tag.vert{border-color:rgba(191,232,212,.55); background:rgba(191,232,212,.22); color:#1e5c46}
 
     /* Prestations cards with photo */
-    .service{
-      padding:0;
-      overflow:hidden;
-    }
+    .service{padding:0; overflow:hidden}
     .service .thumb{
       height:150px;
       background-size:cover;
@@ -277,18 +271,13 @@
       background: linear-gradient(180deg, rgba(31,36,48,.06), rgba(31,36,48,.46));
     }
     .service .body{padding:16px 18px 18px}
-    .service .body h3{color:#141824}
     .service .body ul{
       margin:10px 0 0; padding-left:18px;
       color:var(--muted); font-size:14px; line-height:1.6;
     }
 
     /* Gallery */
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:12px;
-    }
+    .gallery{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px}
     .gitem{
       border-radius: 22px;
       overflow:hidden;
@@ -311,8 +300,7 @@
     }
     .gitem .label{
       position:absolute; left:14px; bottom:12px;
-      color:#fff;
-      font-weight:700;
+      color:#fff; font-weight:900;
       text-shadow: 0 6px 22px rgba(0,0,0,.28);
       font-size:13px;
       letter-spacing:.2px;
@@ -322,12 +310,18 @@
     .span4{grid-column: span 4}
     .span8{grid-column: span 8}
 
+    /* Reviews */
+    .review-top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px}
+    .stars{letter-spacing:1px}
+    .avatar{
+      width:38px; height:38px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(255,122,162,.35), rgba(255,209,102,.25), rgba(191,232,212,.28));
+      border:1px solid rgba(31,36,48,.08);
+    }
+
     /* Process */
     .steps{counter-reset: step}
-    .step{
-      position:relative;
-      padding-left:56px;
-    }
+    .step{position:relative; padding-left:56px}
     .step::before{
       counter-increment: step;
       content: counter(step);
@@ -335,8 +329,7 @@
       width:30px; height:30px;
       border-radius:12px;
       display:grid; place-items:center;
-      font-weight:800;
-      color:#fff;
+      font-weight:900; color:#fff;
       background: linear-gradient(135deg, var(--rose), var(--saumon), var(--jaune));
       box-shadow:0 18px 46px rgba(255,122,162,.24);
     }
@@ -366,18 +359,14 @@
       background: linear-gradient(135deg, rgba(255,122,162,.95), rgba(255,143,122,.95), rgba(255,209,102,.92));
       box-shadow:0 16px 46px rgba(255,122,162,.24);
       flex:0 0 auto;
+      font-weight:900;
     }
-    .contact a.link b{display:block}
-    .contact a.link span{display:block; color:var(--muted); font-size:13px; margin-top:2px}
 
-    form{
-      display:grid; gap:10px;
-      margin-top:10px;
-    }
+    form{display:grid; gap:10px; margin-top:10px}
     label{font-size:12px; color:var(--muted)}
     input, textarea{
       width:100%;
-      padding:12px 12px;
+      padding:12px;
       border-radius:16px;
       border:1px solid rgba(31,36,48,.10);
       background:rgba(255,255,255,.80);
@@ -391,38 +380,52 @@
     }
     .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
 
-    footer{
-      padding:28px 0 40px;
-      color:var(--muted);
-    }
+    footer{padding:28px 0 40px; color:var(--muted)}
     .foot{
       display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
       border-top:1px solid rgba(31,36,48,.08);
       padding-top:18px;
     }
 
+    /* WhatsApp floating button */
+    .wa-fab{
+      position:fixed; right:18px; bottom:18px; z-index:60;
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:999px;
+      background: rgba(255,255,255,.80);
+      border:1px solid rgba(31,36,48,.10);
+      box-shadow:0 18px 60px rgba(31,36,48,.16);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .wa-badge{
+      width:44px; height:44px; border-radius:16px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(191,232,212,.95), rgba(255,209,102,.75), rgba(255,122,162,.55));
+      border:1px solid rgba(255,255,255,.6);
+    }
+    .wa-fab b{font-size:14px}
+    .wa-fab span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
+
     /* Mobile */
-    .burger{display:none}
     @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr; }
+      .hero-grid{grid-template-columns:1fr}
       .hero-card{min-height: 360px}
-      .grid3{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
+      .grid3,.grid2{grid-template-columns:1fr}
       .contact{grid-template-columns:1fr}
       .span7,.span5,.span4,.span8{grid-column: span 12}
-      nav ul{display:none}
-      .burger{display:inline-flex}
+      .kpis{grid-template-columns:1fr}
+      .brand{min-width:auto}
     }
-
-    /* Smooth anchor offset for sticky header */
-    :target{scroll-margin-top:90px}
   </style>
 </head>
 
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Retour en haut de page">
+      <a class="brand" href="#top" aria-label="Retour en haut">
         <div class="logo" aria-hidden="true"></div>
         <div>
           <b>Décoration Événementielle</b>
@@ -432,26 +435,17 @@
 
       <nav aria-label="Navigation principale">
         <ul>
-          <li><a href="#prestations">Prestations</a></li>
-          <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#methode">Méthode</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a class="navlink" href="#prestations">Prestations</a></li>
+          <li><a class="navlink" href="#galerie">Galerie</a></li>
+          <li><a class="navlink" href="#avis">Avis</a></li>
+          <li><a class="navlink" href="#methode">Méthode</a></li>
+          <li><a class="navlink" href="#contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="actions">
-        <a class="btn" href="tel:+33767058731" aria-label="Appeler">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.7 3.3.8.6.1 1.1.6 1.1 1.2V21c0 .7-.6 1.2-1.3 1.2C10.7 22.2 1.8 13.3 1.8 2.3 1.8 1.6 2.4 1 3.1 1h3.4c.6 0 1.1.5 1.2 1.1.1 1.1.4 2.2.8 3.3.1.4 0 .9-.2 1.2L6.6 10.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-          </svg>
-          Appeler
-        </a>
-        <a class="btn primary" href="#contact">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 7 10 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Demander un devis
-        </a>
+        <a class="btn" href="tel:+33767058731">Appeler</a>
+        <a class="btn primary" href="#contact">Demander un devis</a>
       </div>
     </div>
   </header>
@@ -471,15 +465,16 @@
           </p>
 
           <div class="badges">
-            <span class="tag rose">Palette rose & saumon</span>
-            <span class="tag jaune">Touches jaune solaire</span>
-            <span class="tag vert">Vert pâle & douceur</span>
-            <span class="tag">Conseils & scénographie</span>
+            <span class="tag rose">Rose</span>
+            <span class="tag">Saumon</span>
+            <span class="tag jaune">Jaune</span>
+            <span class="tag vert">Vert pâle</span>
+            <span class="tag">Scénographie</span>
           </div>
 
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
             <a class="btn primary" href="#prestations">Découvrir mes prestations</a>
-            <a class="btn" href="mailto:saindounaida@gmail.com?subject=Demande%20de%20devis%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle&body=Bonjour%20%2C%0A%0AJe%20souhaite%20un%20devis%20pour%20un%20%C3%A9v%C3%A9nement%20(%3Atype%2C%20date%2C%20lieu%2C%20nombre%20d%E2%80%99invit%C3%A9s%2C%20style%20souhait%C3%A9).%0A%0AMerci%20%21">
+            <a class="btn" href="mailto:saindounaida@gmail.com?subject=Demande%20de%20devis%20-%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle">
               Envoyer un email
             </a>
           </div>
@@ -487,15 +482,15 @@
           <div class="kpis">
             <div class="kpi">
               <b>Design sur-mesure</b>
-              <span>Une déco cohérente, harmonieuse et fidèle à votre style.</span>
+              <span>Une déco harmonieuse et fidèle à votre style.</span>
             </div>
             <div class="kpi">
               <b>Installation & mise en scène</b>
               <span>Je gère les détails le jour J pour que vous profitiez.</span>
             </div>
             <div class="kpi">
-              <b>Rendu “waouh”</b>
-              <span>Une ambiance qui suscite l’émotion dès l’entrée.</span>
+              <b>Effet “waouh”</b>
+              <span>Ambiance émotive, photogénique et premium.</span>
             </div>
           </div>
         </div>
@@ -510,7 +505,7 @@
             </div>
             <div>
               <b>Diplômée en événementiel</b>
-              <span>Une approche pro : écoute, planning, moodboard, scénographie & finitions.</span>
+              <span>Écoute, moodboard, planification, scénographie & finitions.</span>
             </div>
           </div>
         </aside>
@@ -523,7 +518,7 @@
         <div class="section-head">
           <div>
             <h2>Prestations</h2>
-            <p>Chaque formule s’adapte à votre budget, votre lieu et l’ambiance souhaitée. Le but : une déco cohérente, photogénique et pleine d’émotion.</p>
+            <p>Chaque formule s’adapte à votre budget, votre lieu et l’ambiance souhaitée. Objectif : un décor cohérent et “photo-ready”.</p>
           </div>
           <span class="chip"><span class="dot"></span> Devis rapide • Réponse sous 24–48h</span>
         </div>
@@ -535,7 +530,7 @@
               <h3>Mariages</h3>
               <p>Une scénographie élégante qui raconte votre histoire.</p>
               <ul>
-                <li>Arche, cérémonie laïque, allées, chaises</li>
+                <li>Arche, cérémonie, allées, chaises</li>
                 <li>Centre de table, plan de table, photobooth</li>
                 <li>Palette couleurs, fleurs, bougies, textiles</li>
               </ul>
@@ -553,9 +548,9 @@
               <h3>Anniversaires</h3>
               <p>Une ambiance festive et joyeuse, pensée pour les photos.</p>
               <ul>
-                <li>Décor de fond, ballons, guirlandes, néons</li>
-                <li>Table sweet table / candy bar</li>
-                <li>Thème, accessoires & personnalisation</li>
+                <li>Décor de fond, ballons, guirlandes</li>
+                <li>Sweet table / candy bar</li>
+                <li>Thème & personnalisation</li>
               </ul>
               <div class="tagrow">
                 <span class="tag jaune">Festif</span>
@@ -587,11 +582,11 @@
             <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1528460033278-a6ba57020470?auto=format&fit=crop&w=1400&q=80');"></div>
             <div class="body">
               <h3>EVJF</h3>
-              <p>Une déco glamour, fun et mémorable pour votre journée.</p>
+              <p>Une déco glamour, fun et mémorable.</p>
               <ul>
-                <li>Photobooth, accessoires, décoration de table</li>
+                <li>Photobooth, accessoires, déco table</li>
                 <li>Ambiance chic & pétillante</li>
-                <li>Options “surprise” et détails personnalisés</li>
+                <li>Options “surprise” & personnalisation</li>
               </ul>
               <div class="tagrow">
                 <span class="tag rose">Glam</span>
@@ -605,7 +600,7 @@
             <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1400&q=80');"></div>
             <div class="body">
               <h3>Événements festifs</h3>
-              <p>Soirées, fiançailles, baptêmes, garden party…</p>
+              <p>Soirées, fiançailles, garden party…</p>
               <ul>
                 <li>Ambiance, éclairage, fleurs, textures</li>
                 <li>Mise en scène et harmonisation du lieu</li>
@@ -626,8 +621,8 @@
               <p>Pour compléter votre décor ou gagner du temps.</p>
               <ul>
                 <li>Conception moodboard & palette couleurs</li>
-                <li>Location éléments déco (selon dispo)</li>
                 <li>Installation / désinstallation</li>
+                <li>Conseils & stylisme</li>
               </ul>
               <div class="tagrow">
                 <span class="tag">Flexible</span>
@@ -646,28 +641,86 @@
         <div class="section-head">
           <div>
             <h2>Galerie d’inspirations</h2>
-            <p>Des visuels libres de droits (Unsplash) pour refléter l’univers : élégance, lumière, couleurs et finitions.</p>
+            <p>Photos libres de droits (Unsplash) pour refléter l’univers : élégance, lumière, couleurs et finitions.</p>
           </div>
           <a class="btn" href="#contact">Je veux ce style</a>
         </div>
 
         <div class="gallery" aria-label="Galerie photos">
           <figure class="gitem span7">
-            <img loading="lazy" alt="Décoration de table élégante" src="https://images.unsplash.com/photo-1523438097201-512ae7d59c0f?auto=format&fit=crop&w=1600&q=80">
+            <img loading="lazy" alt="Décoration de table élégante"
+                 src="https://images.unsplash.com/photo-1523438097201-512ae7d59c0f?auto=format&fit=crop&w=1600&q=80">
             <figcaption class="label">Ambiance élégante</figcaption>
           </figure>
           <figure class="gitem span5">
-            <img loading="lazy" alt="Ballons et décor de fête" src="https://images.unsplash.com/photo-1528460033278-a6ba57020470?auto=format&fit=crop&w=1400&q=80">
+            <img loading="lazy" alt="Ballons et décor de fête"
+                 src="https://images.unsplash.com/photo-1528460033278-a6ba57020470?auto=format&fit=crop&w=1400&q=80">
             <figcaption class="label">Arches & ballons</figcaption>
           </figure>
           <figure class="gitem span4">
-            <img loading="lazy" alt="Décoration florale" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80">
+            <img loading="lazy" alt="Décoration florale"
+                 src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80">
             <figcaption class="label">Fleurs & détails</figcaption>
           </figure>
           <figure class="gitem span8">
-            <img loading="lazy" alt="Décor de mariage lumineux" src="https://images.unsplash.com/photo-1529634892931-bfd1d9f4c6f0?auto=format&fit=crop&w=1800&q=80">
+            <img loading="lazy" alt="Décor de mariage lumineux"
+                 src="https://images.unsplash.com/photo-1529634892931-bfd1d9f4c6f0?auto=format&fit=crop&w=1800&q=80">
             <figcaption class="label">Mariage lumineux</figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVIS -->
+    <section id="avis">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Avis clients</h2>
+            <p>Exemples de témoignages (remplaçables par les vôtres).</p>
+          </div>
+          <a class="btn primary" href="#contact">Je veux mon devis</a>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="review-top">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <b>Sarah</b><div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <span class="tag rose">Mariage</span>
+            </div>
+            <p>Une déco sublime, exactement ce qu’on imaginait (et même mieux). Tout était harmonieux et parfaitement installé.</p>
+          </div>
+
+          <div class="card">
+            <div class="review-top">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <b>Nadia</b><div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <span class="tag jaune">Anniversaire</span>
+            </div>
+            <p>Ambiance joyeuse et chic. Les invités ont pris des photos toute la soirée. Très pro et adorable.</p>
+          </div>
+
+          <div class="card">
+            <div class="review-top">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <b>Imane</b><div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <span class="tag vert">Baby shower</span>
+            </div>
+            <p>Tout était doux, lumineux, parfaitement dans le thème. Une vraie tranquillité de l’avoir le jour J.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -685,19 +738,19 @@
         <div class="grid2 steps">
           <div class="card step">
             <h3>1) Échange & compréhension</h3>
-            <p>On parle de votre événement, vos envies, votre lieu, vos contraintes et votre budget. Je collecte l’essentiel pour viser juste.</p>
+            <p>On parle de votre événement, vos envies, votre lieu, vos contraintes et votre budget.</p>
           </div>
           <div class="card step">
             <h3>2) Moodboard & proposition</h3>
-            <p>Je prépare une direction artistique : palette rose/saumon/jaune/vert pâle (ou autre), matières, inspirations et éléments déco.</p>
+            <p>Direction artistique : palette, matières, inspirations, éléments déco & mise en scène.</p>
           </div>
           <div class="card step">
             <h3>3) Préparation & planification</h3>
-            <p>Je sécurise les détails : timing, installation, mise en scène, liste des éléments. Vous avancez sereinement.</p>
+            <p>Timing, check-list, installation : tout est cadré pour avancer sereinement.</p>
           </div>
           <div class="card step">
             <h3>4) Installation & effet “waouh”</h3>
-            <p>Le jour J, je mets en place, j’ajuste les finitions et l’éclairage pour un résultat photo-ready.</p>
+            <p>Le jour J : mise en place, ajustements, finitions et rendu photo-ready.</p>
           </div>
         </div>
       </div>
@@ -717,36 +770,27 @@
         <div class="contact">
           <div class="card">
             <h3>Coordonnées</h3>
-            <p>Choisissez le moyen le plus simple pour vous :</p>
+            <p>Choisissez le moyen le plus simple :</p>
 
             <div style="display:grid; gap:10px; margin-top:12px;">
               <a class="link" href="mailto:saindounaida@gmail.com?subject=Demande%20de%20devis%20-%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle">
-                <div class="pill" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 6h16v12H4V6Z" stroke="white" stroke-width="1.7" stroke-linejoin="round"/>
-                    <path d="m4 7 8 6 8-6" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
+                <div class="pill" aria-hidden="true">📧</div>
                 <div>
-                  <b>📧 saindounaida@gmail.com</b>
+                  <b>saindounaida@gmail.com</b>
                   <span>Envoyer un message (devis, questions, disponibilités)</span>
                 </div>
               </a>
 
               <a class="link" href="tel:+33767058731">
-                <div class="pill" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.7 3.3.8.6.1 1.1.6 1.1 1.2V21c0 .7-.6 1.2-1.3 1.2C10.7 22.2 1.8 13.3 1.8 2.3 1.8 1.6 2.4 1 3.1 1h3.4c.6 0 1.1.5 1.2 1.1.1 1.1.4 2.2.8 3.3.1.4 0 .9-.2 1.2L6.6 10.8Z" fill="white" opacity=".95"/>
-                  </svg>
-                </div>
+                <div class="pill" aria-hidden="true">📞</div>
                 <div>
-                  <b>📞 07 67 05 87 31</b>
-                  <span>Appel / WhatsApp (si vous préférez)</span>
+                  <b>07 67 05 87 31</b>
+                  <span>Appel / WhatsApp</span>
                 </div>
               </a>
             </div>
 
-            <div style="margin-top:14px" class="tagrow">
+            <div class="tagrow" style="margin-top:14px">
               <span class="tag">Mariage</span>
               <span class="tag">Anniversaire</span>
               <span class="tag">Baby shower</span>
@@ -800,42 +844,77 @@
 
               <button class="btn primary" type="submit">Ouvrir l’email prêt à envoyer</button>
               <small style="color:var(--muted); line-height:1.5;">
-                Astuce : ajoutez des photos d’inspiration dans l’email pour que je cerne votre univers au plus juste.
+                Astuce : ajoutez des photos d’inspiration dans l’email pour aller plus vite.
               </small>
             </form>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="wrap foot">
-      <div style="display:flex; align-items:center; gap:12px;">
-        <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:14px;"></div>
-        <div>
-          <div style="font-weight:800; color:var(--encre);">Décoration Événementielle</div>
-          <div style="font-size:13px;">© <span id="year"></span> • Tous droits réservés</div>
+    <footer>
+      <div class="wrap foot">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:14px;"></div>
+          <div>
+            <div style="font-weight:900; color:var(--encre);">Décoration Événementielle</div>
+            <div style="font-size:13px;">© <span id="year"></span> • Tous droits réservés</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="mailto:saindounaida@gmail.com">Email</a>
+          <a class="btn" href="tel:+33767058731">Téléphone</a>
+          <a class="btn" href="#top">Haut de page</a>
         </div>
       </div>
+    </footer>
+  </main>
 
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn" href="mailto:saindounaida@gmail.com">Email</a>
-        <a class="btn" href="tel:+33767058731">Téléphone</a>
-        <a class="btn" href="#top">Haut de page</a>
-      </div>
+  <!-- WhatsApp floating button -->
+  <a class="wa-fab"
+     href="https://wa.me/33767058731?text=Bonjour%20!%20Je%20souhaite%20un%20devis%20pour%20une%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle%20(type%2C%20date%2C%20lieu%2C%20invit%C3%A9s)."
+     target="_blank" rel="noopener">
+    <div class="wa-badge" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M20 11.6a8.4 8.4 0 0 1-12.6 7.3L4 20l1.2-3.2A8.4 8.4 0 1 1 20 11.6Z" stroke="rgba(31,36,48,.35)" stroke-width="1.6" fill="white" opacity=".85"/>
+        <path d="M10.2 9.2c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.7 1.6c.1.3.1.6-.1.8l-.4.5c.5 1 1.4 1.7 2.4 2.1l.4-.4c.2-.2.5-.2.8-.1l1.5.7c.3.1.4.3.4.5v.6c0 .2 0 .5-.5.7-.5.2-1.6.5-3.4-.3-1.8-.8-3.2-2.4-3.8-4.2-.6-1.8.1-2.9.3-3.4Z" fill="rgba(31,36,48,.45)"/>
+      </svg>
     </div>
-  </footer>
+    <div>
+      <b>WhatsApp</b>
+      <span>Devis rapide</span>
+    </div>
+  </a>
 
   <script>
     // Année
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Surbrillance du lien actif selon la section visible
+    const links = Array.from(document.querySelectorAll(".navlink"));
+    const sections = links
+      .map(a => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      // On choisit la section la plus visible
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target?.id) setActive(visible.target.id);
+    }, { rootMargin: "-45% 0px -45% 0px", threshold: [0.15, 0.25, 0.35, 0.5, 0.65] });
+
+    sections.forEach(sec => io.observe(sec));
+
     // Form => mailto pré-rempli
     const form = document.getElementById("quoteForm");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-
       const v = (id) => (document.getElementById(id).value || "").trim();
 
       const name   = v("name");
