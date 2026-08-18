@@ -1,952 +1,480 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Décoratrice Événementielle | Mariages • Anniversaires • Baby showers</title>
-  <meta name="description" content="Décoratrice événementielle diplômée : mariages, anniversaires, baby showers, EVJF et événements festifs. Devis rapide." />
-  <meta name="theme-color" content="#ff7aa2" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urbanissime — Accompagnement en urbanisme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6ED;
+    --paper-line:#E7DFCB;
+    --ink:#1B3A5C;
+    --ink-soft:#3E5A78;
+    --yellow:#F2A93B;
+    --green:#5B9A6F;
+    --pink:#F0637A;
+    --sky:#4FA8D8;
+    --card-bg:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
 
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <link rel="preconnect" href="https://source.unsplash.com" crossorigin>
+  /* HEADER */
+  header{
+    padding:28px 0 12px;
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:18px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .logo-dot{
+    width:10px;height:10px;border-radius:3px;
+    background:var(--pink);
+    display:inline-block;
+    transform:rotate(8deg);
+  }
+  .nav a.cta-small{
+    background:var(--ink);
+    color:var(--paper);
+    padding:10px 18px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
 
-  <style>
-    :root{
-      --rose:#ff7aa2;
-      --saumon:#ff8f7a;
-      --jaune:#ffd166;
-      --vert:#bfe8d4;
-      --fond:#fff7fb;
-      --encre:#1f2430;
-      --muted:#5b6476;
-      --stroke:rgba(31,36,48,.10);
-      --shadow: 0 18px 60px rgba(31,36,48,.14);
-      --radius: 22px;
-      --radius2: 28px;
-      --max: 1120px;
-    }
+  /* HERO */
+  .hero{
+    padding:36px 0 56px;
+    position:relative;
+  }
+  .brandmark{
+    font-family:'Fredoka', sans-serif;
+    font-weight:700;
+    font-size:clamp(48px, 9vw, 84px);
+    line-height:1;
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    color:var(--ink);
+  }
+  .brandmark .sq{
+    width:0.5em;height:0.5em;
+    border-radius:0.1em;
+    background:var(--pink);
+    transform:rotate(8deg);
+    flex-shrink:0;
+  }
+  .brandmark-under{
+    height:10px;
+    width:min(420px, 60%);
+    background:linear-gradient(90deg, var(--yellow), var(--pink), var(--sky));
+    border-radius:6px;
+    margin:0 0 28px;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#FFFFFF;
+    border:1.5px solid var(--paper-line);
+    padding:6px 14px 6px 10px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink-soft);
+    margin-bottom:22px;
+  }
+  .eyebrow .sq{width:8px;height:8px;border-radius:2px;background:var(--yellow);}
+  .hero h1{
+    font-size:clamp(28px, 4.4vw, 38px);
+    line-height:1.12;
+    margin:0 0 20px;
+    max-width:15ch;
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  .hero h1 .accent{color:var(--pink);font-weight:600;}
+  .hero p.lead{
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 0 28px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:14px 26px;
+    border-radius:14px;
+    font-weight:600;
+    text-decoration:none;
+    font-size:15px;
+    border:2px solid transparent;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper);}
+  .btn-primary:hover{background:var(--pink);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--encre);
-      background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(255,122,162,.22), transparent 55%),
-        radial-gradient(1000px 600px at 80% 0%, rgba(255,209,102,.20), transparent 52%),
-        radial-gradient(900px 550px at 85% 65%, rgba(191,232,212,.28), transparent 55%),
-        linear-gradient(180deg, #fff, var(--fond));
-      overflow-x:hidden;
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    section{padding:56px 0}
-    :target{scroll-margin-top:90px}
+  /* skyline signature */
+  .skyline{
+    display:flex;
+    align-items:flex-end;
+    gap:6px;
+    margin-top:44px;
+    height:60px;
+  }
+  .skyline .bar{
+    width:14px;
+    border-radius:4px 4px 0 0;
+  }
 
-    .chip{
-      display:inline-flex; align-items:center; gap:10px;
-      background:rgba(255,255,255,.75);
-      border:1px solid var(--stroke);
-      padding:10px 14px;
-      border-radius:999px;
-      box-shadow:0 8px 24px rgba(31,36,48,.08);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      font-size:14px; color:var(--muted);
-    }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: conic-gradient(from 180deg, var(--rose), var(--saumon), var(--jaune), var(--vert), var(--rose));
-      box-shadow:0 6px 16px rgba(255,122,162,.35);
-    }
+  /* SECTION LABELS */
+  .section{padding:52px 0;}
+  .section-head{margin-bottom:32px;}
+  .kicker{
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .kicker::before{
+    content:"";
+    width:22px;height:2px;
+    background:var(--pink);
+    display:inline-block;
+  }
+  .section h2{
+    font-size:clamp(26px,4vw,34px);
+    margin:10px 0 0;
+  }
+  .section-sub{
+    color:var(--ink-soft);
+    font-size:16px;
+    max-width:60ch;
+    margin-top:10px;
+  }
 
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      background: rgba(255,255,255,.58);
-      border-bottom:1px solid rgba(31,36,48,.08);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:12px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      text-decoration:none;
-      min-width: 220px;
-    }
-    .logo{
-      width:38px; height:38px; border-radius:14px;
-      background:
-        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.8), transparent 70%),
-        linear-gradient(135deg, var(--rose), var(--saumon), var(--jaune));
-      box-shadow: 0 12px 34px rgba(255,122,162,.28);
-      border:1px solid rgba(255,255,255,.6);
-      flex:0 0 auto;
-    }
-    .brand b{font-size:15px; letter-spacing:.2px}
-    .brand span{font-size:12px; color:var(--muted); display:block; margin-top:2px}
+  /* OFFER CARDS as "lots de plan cadastral" */
+  .lots{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:16px;
+    margin-top:28px;
+  }
+  .lot{
+    background:var(--card-bg);
+    border:1.5px solid var(--paper-line);
+    border-radius:18px;
+    padding:22px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .lot-tag{
+    position:absolute;
+    top:18px;right:18px;
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:12px;
+    padding:5px 10px;
+    border-radius:999px;
+    color:#fff;
+  }
+  .lot h3{
+    font-size:19px;
+    margin:0;
+    padding-right:70px;
+  }
+  .lot .price{
+    font-family:'Fredoka', sans-serif;
+    font-size:30px;
+    font-weight:700;
+    margin:2px 0 0;
+  }
+  .lot .price span{font-size:14px;font-weight:500;color:var(--ink-soft);}
+  .lot p{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    margin:6px 0 0;
+    flex-grow:1;
+  }
+  .lot ul{
+    margin:6px 0 0;
+    padding-left:18px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .lot ul li{margin-bottom:4px;}
+  .lot .note{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+    margin-top:8px;
+    border-top:1px dashed var(--paper-line);
+    padding-top:8px;
+  }
+  .lot .book{
+    margin-top:10px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-weight:600;
+    font-size:14px;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .lot .book::after{content:"→";transition:transform .15s;}
+  .lot .book:hover::after{transform:translateX(4px);}
 
-    nav{display:flex; align-items:center; gap:10px}
-    nav ul{
-      list-style:none; padding:0; margin:0;
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
-    }
-    nav a{
-      text-decoration:none;
-      font-size:14px;
-      color:var(--muted);
-      padding:10px 10px;
-      border-radius:12px;
-      transition:.2s ease;
-    }
-    nav a:hover{background:rgba(255,122,162,.10); color:var(--encre)}
-    nav a.active{background:rgba(255,122,162,.14); color:var(--encre); font-weight:800}
+  .tag-yellow{background:var(--yellow);}
+  .tag-green{background:var(--green);}
+  .tag-pink{background:var(--pink);}
+  .tag-sky{background:var(--sky);}
 
-    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
-    .btn{
-      border:1px solid rgba(31,36,48,.10);
-      background:rgba(255,255,255,.75);
-      color:var(--encre);
-      padding:10px 14px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:800;
-      font-size:14px;
-      box-shadow:0 10px 28px rgba(31,36,48,.08);
-      transition:.2s ease;
-      display:inline-flex; align-items:center; gap:10px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .btn:hover{transform: translateY(-1px); box-shadow:0 18px 46px rgba(31,36,48,.14)}
-    .btn.primary{
-      border:1px solid rgba(255,122,162,.25);
-      background: linear-gradient(135deg, rgba(255,122,162,.95), rgba(255,143,122,.95), rgba(255,209,102,.92));
-      color:#fff;
-      box-shadow:0 18px 60px rgba(255,122,162,.24);
-    }
+  .lot.featured{
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink);
+  }
+  .lot.featured .price{color:#fff;}
+  .lot.featured .price span{color:#C9D6E3;}
+  .lot.featured p{color:#C9D6E3;}
+  .lot.featured ul{color:#C9D6E3;}
+  .lot.featured .note{color:#AFC0D3;border-top-color:#33506E;}
+  .lot.featured .book{color:#fff;}
 
-    /* Hero */
-    .hero{padding:64px 0 32px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:26px;
-      align-items:stretch;
-    }
-    .hero h1{
-      margin:14px 0 14px;
-      font-size: clamp(34px, 4.6vw, 54px);
-      line-height:1.03;
-      letter-spacing:-.6px;
-    }
-    .hero p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.7;
-      max-width: 58ch;
-    }
-    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 18px}
-    .kpis{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap:12px;
-      margin-top:18px;
-    }
-    .kpi{
-      background:rgba(255,255,255,.66);
-      border:1px solid rgba(31,36,48,.08);
-      border-radius:18px;
-      padding:14px;
-      box-shadow:0 16px 46px rgba(31,36,48,.10);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .kpi b{display:block; font-size:16px}
-    .kpi span{display:block; margin-top:4px; color:var(--muted); font-size:13px; line-height:1.35}
+  /* PAIEMENT STRIP */
+  .paiement{
+    background:#FFFFFF;
+    border:1.5px dashed var(--paper-line);
+    border-radius:18px;
+    padding:22px 24px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    margin-top:36px;
+  }
+  .paiement .picto{
+    width:38px;height:38px;
+    border-radius:10px;
+    background:var(--yellow);
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+  }
+  .paiement p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+  .paiement strong{color:var(--ink);}
 
-    .hero-card{
-      border-radius: var(--radius2);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.75);
-      background:rgba(255,255,255,.55);
-      box-shadow: var(--shadow);
-      position:relative;
-      min-height: 420px;
-    }
-    .hero-photo{
-      position:absolute; inset:0;
-      background-image:
-        linear-gradient(180deg, rgba(31,36,48,.10), rgba(31,36,48,.42)),
-        url("https://images.unsplash.com/photo-1523438097201-512ae7d59c0f?auto=format&fit=crop&w=1400&q=80");
-      background-size:cover;
-      background-position:center;
-      transform: scale(1.02);
-      filter:saturate(1.05);
-    }
-    .hero-float{
-      position:absolute; left:18px; right:18px; bottom:18px;
-      background:rgba(255,255,255,.78);
-      border:1px solid rgba(31,36,48,.10);
-      border-radius: 22px;
-      padding:14px;
-      box-shadow:0 22px 62px rgba(31,36,48,.18);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      display:flex; gap:12px; align-items:flex-start;
-    }
-    .heart{
-      width:44px; height:44px; border-radius:16px;
-      background: linear-gradient(135deg, rgba(255,122,162,.95), rgba(255,143,122,.95), rgba(255,209,102,.92));
-      display:grid; place-items:center;
-      color:#fff;
-      box-shadow:0 16px 46px rgba(255,122,162,.26);
-      flex:0 0 auto;
-    }
-    .hero-float b{display:block}
-    .hero-float span{display:block; color:var(--muted); margin-top:2px; font-size:13px; line-height:1.4}
+  /* WEBINAIRE STRIP */
+  .webinaire{
+    background:linear-gradient(135deg, #FFF7E8, #FFEFE4);
+    border:1.5px solid var(--paper-line);
+    border-radius:18px;
+    padding:26px;
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .webinaire h3{margin:0 0 6px;font-size:20px;}
+  .webinaire p{margin:0;color:var(--ink-soft);font-size:14.5px;max-width:44ch;}
 
-    /* Sections */
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:18px;
-    }
-    .section-head h2{
-      margin:0;
-      font-size: clamp(22px, 2.3vw, 30px);
-      letter-spacing:-.2px;
-    }
-    .section-head p{
-      margin:0;
-      color:var(--muted);
-      max-width: 62ch;
-      line-height:1.6;
-      font-size:14px;
-    }
+  footer{
+    padding:48px 0 60px;
+    border-top:1.5px solid var(--paper-line);
+    margin-top:20px;
+  }
+  footer .foot-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  footer .logo{font-size:18px;}
+  footer .links{display:flex;gap:22px;font-size:14px;font-weight:600;}
+  footer .links a{text-decoration:none;}
+  footer .links a:hover{color:var(--pink);}
+  footer .copy{
+    margin-top:22px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
 
-    .grid3{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px}
-    .grid2{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px}
-
-    .card{
-      background:rgba(255,255,255,.68);
-      border:1px solid rgba(31,36,48,.08);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow:0 18px 56px rgba(31,36,48,.10);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .card h3{margin:0 0 8px; font-size:16px}
-    .card p{margin:0; color:var(--muted); line-height:1.65; font-size:14px}
-
-    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
-    .tag{
-      font-size:12px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(31,36,48,.08);
-      background:rgba(255,255,255,.70);
-      color:var(--muted);
-    }
-    .tag.rose{border-color:rgba(255,122,162,.25); background:rgba(255,122,162,.10); color:#6a2b3f}
-    .tag.jaune{border-color:rgba(255,209,102,.35); background:rgba(255,209,102,.16); color:#6b541a}
-    .tag.vert{border-color:rgba(191,232,212,.55); background:rgba(191,232,212,.22); color:#1e5c46}
-
-    /* Prestations cards with photo */
-    .service{padding:0; overflow:hidden}
-    .service .thumb{
-      height:150px;
-      background-size:cover;
-      background-position:center;
-      position:relative;
-    }
-    .service .thumb::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(31,36,48,.06), rgba(31,36,48,.46));
-    }
-    .service .body{padding:16px 18px 18px}
-    .service .body ul{
-      margin:10px 0 0; padding-left:18px;
-      color:var(--muted); font-size:14px; line-height:1.6;
-    }
-
-    /* Gallery */
-    .gallery{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px}
-    .gitem{
-      border-radius: 22px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.75);
-      box-shadow: 0 18px 56px rgba(31,36,48,.12);
-      position:relative;
-      min-height: 180px;
-      background:#fff;
-    }
-    .gitem img{
-      width:100%; height:100%; object-fit:cover; display:block;
-      transform: scale(1.03);
-      filter:saturate(1.05);
-    }
-    .gitem::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, transparent 45%, rgba(31,36,48,.42));
-      pointer-events:none;
-    }
-    .gitem .label{
-      position:absolute; left:14px; bottom:12px;
-      color:#fff; font-weight:900;
-      text-shadow: 0 6px 22px rgba(0,0,0,.28);
-      font-size:13px;
-      letter-spacing:.2px;
-    }
-    .span7{grid-column: span 7}
-    .span5{grid-column: span 5}
-    .span4{grid-column: span 4}
-    .span8{grid-column: span 8}
-
-    /* Reviews */
-    .review-top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px}
-    .stars{letter-spacing:1px}
-    .avatar{
-      width:38px; height:38px; border-radius:14px;
-      background: linear-gradient(135deg, rgba(255,122,162,.35), rgba(255,209,102,.25), rgba(191,232,212,.28));
-      border:1px solid rgba(31,36,48,.08);
-    }
-
-    /* Process */
-    .steps{counter-reset: step}
-    .step{position:relative; padding-left:56px}
-    .step::before{
-      counter-increment: step;
-      content: counter(step);
-      position:absolute; left:16px; top:16px;
-      width:30px; height:30px;
-      border-radius:12px;
-      display:grid; place-items:center;
-      font-weight:900; color:#fff;
-      background: linear-gradient(135deg, var(--rose), var(--saumon), var(--jaune));
-      box-shadow:0 18px 46px rgba(255,122,162,.24);
-    }
-
-    /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:stretch;
-    }
-    .contact a.link{
-      display:flex; gap:12px; align-items:center;
-      padding:14px;
-      border-radius:18px;
-      border:1px solid rgba(31,36,48,.08);
-      background:rgba(255,255,255,.72);
-      text-decoration:none;
-      box-shadow:0 16px 46px rgba(31,36,48,.10);
-      transition:.2s ease;
-    }
-    .contact a.link:hover{transform:translateY(-1px)}
-    .pill{
-      width:44px; height:44px; border-radius:16px;
-      display:grid; place-items:center;
-      color:#fff;
-      background: linear-gradient(135deg, rgba(255,122,162,.95), rgba(255,143,122,.95), rgba(255,209,102,.92));
-      box-shadow:0 16px 46px rgba(255,122,162,.24);
-      flex:0 0 auto;
-      font-weight:900;
-    }
-
-    form{display:grid; gap:10px; margin-top:10px}
-    label{font-size:12px; color:var(--muted)}
-    input, textarea{
-      width:100%;
-      padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(31,36,48,.10);
-      background:rgba(255,255,255,.80);
-      outline:none;
-      font:inherit;
-    }
-    textarea{min-height:120px; resize:vertical}
-    input:focus, textarea:focus{
-      border-color: rgba(255,122,162,.45);
-      box-shadow: 0 0 0 6px rgba(255,122,162,.12);
-    }
-    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
-
-    footer{padding:28px 0 40px; color:var(--muted)}
-    .foot{
-      display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
-      border-top:1px solid rgba(31,36,48,.08);
-      padding-top:18px;
-    }
-
-    /* WhatsApp floating button */
-    .wa-fab{
-      position:fixed; right:18px; bottom:18px; z-index:60;
-      display:flex; align-items:center; gap:10px;
-      text-decoration:none;
-      padding:12px 14px;
-      border-radius:999px;
-      background: rgba(255,255,255,.80);
-      border:1px solid rgba(31,36,48,.10);
-      box-shadow:0 18px 60px rgba(31,36,48,.16);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .wa-badge{
-      width:44px; height:44px; border-radius:16px;
-      display:grid; place-items:center;
-      background: linear-gradient(135deg, rgba(191,232,212,.95), rgba(255,209,102,.75), rgba(255,122,162,.55));
-      border:1px solid rgba(255,255,255,.6);
-    }
-    .wa-fab b{font-size:14px}
-    .wa-fab span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
-
-    /* Mobile */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-card{min-height: 360px}
-      .grid3,.grid2{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .span7,.span5,.span4,.span8{grid-column: span 12}
-      .kpis{grid-template-columns:1fr}
-      .brand{min-width:auto}
-    }
-  </style>
+  @media (max-width:600px){
+    .hero{padding:44px 0 40px;}
+    .nav a.cta-small{padding:8px 14px;font-size:13px;}
+  }
+</style>
 </head>
-
 <body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Retour en haut">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <b>Décoration Événementielle</b>
-          <span>Élégante • Chaleureuse • Joyeuse</span>
-        </div>
-      </a>
 
-      <nav aria-label="Navigation principale">
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><span class="logo-dot"></span>urbanissime.tiktok</a>
+    <a href="#offres" class="cta-small">Voir les offres</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="brandmark"><span class="sq"></span>Urbanissime</p>
+    <div class="brandmark-under"></div>
+    <div class="eyebrow"><span class="sq"></span>Accompagnement individuel</div>
+    <h1>Je rends l'urbanisme <span class="accent">compréhensible.</span></h1>
+    <p class="lead">Orientation, candidatures, notions de cours, mémoire ou soutenance : un accompagnement clair, à ton rythme, pour mieux comprendre ton domaine et avancer sereinement.</p>
+    <div class="hero-actions">
+      <a href="#offres" class="btn btn-primary">Voir les offres et tarifs</a>
+      <a href="https://www.tiktok.com/@permisoupas" class="btn btn-ghost" target="_blank" rel="noopener">Me suivre sur TikTok</a>
+    </div>
+    <div class="skyline" aria-hidden="true">
+      <div class="bar" style="height:28px;background:var(--yellow)"></div>
+      <div class="bar" style="height:44px;background:var(--pink)"></div>
+      <div class="bar" style="height:34px;background:var(--sky)"></div>
+      <div class="bar" style="height:58px;background:var(--ink)"></div>
+      <div class="bar" style="height:24px;background:var(--green)"></div>
+      <div class="bar" style="height:40px;background:var(--pink)"></div>
+      <div class="bar" style="height:50px;background:var(--yellow)"></div>
+      <div class="bar" style="height:30px;background:var(--sky)"></div>
+      <div class="bar" style="height:20px;background:var(--green)"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="offres">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Les offres</div>
+      <h2>Cinq façons de te faire accompagner</h2>
+      <p class="section-sub">Que tu sois étudiant·e, en réorientation ou simplement curieux·se d'urbanisme, choisis la formule qui correspond à ton besoin.</p>
+    </div>
+
+    <div class="lots">
+
+      <div class="lot">
+        <span class="lot-tag tag-yellow">1h visio</span>
+        <h3>Session simple</h3>
+        <p class="price">25€ <span>/ session</span></p>
+        <p>Une heure d'échange individuel, adaptée à ton besoin précis :</p>
         <ul>
-          <li><a class="navlink" href="#prestations">Prestations</a></li>
-          <li><a class="navlink" href="#galerie">Galerie</a></li>
-          <li><a class="navlink" href="#avis">Avis</a></li>
-          <li><a class="navlink" href="#methode">Méthode</a></li>
-          <li><a class="navlink" href="#contact">Contact</a></li>
+          <li>Orientation et découverte du métier</li>
+          <li>CV, lettre de motivation, préparation d'entretien</li>
+          <li>Explication d'une notion de cours</li>
+          <li>Recherche d'un sujet de mémoire</li>
+          <li>Un besoin plus général en urbanisme — ouvert à tous, pas que les étudiant·es</li>
         </ul>
-      </nav>
+        <a class="book" href="https://calendly.com/saindounaida/session-d-accompagnement-urbanisme-1h" target="_blank" rel="noopener">Réserver cette session</a>
+      </div>
 
-      <div class="actions">
-        <a class="btn" href="tel:+33767058731">Appeler</a>
-        <a class="btn primary" href="#contact">Demander un devis</a>
+      <div class="lot">
+        <span class="lot-tag tag-green">Écrit</span>
+        <h3>Relecture de mémoire</h3>
+        <p class="price">40€ <span>/ forfait</span></p>
+        <p>Tu m'envoies ton mémoire par mail, je le lis et t'envoie mes retours écrits : structure, argumentation, clarté.</p>
+        <p class="note">Pas de rendez-vous en visio inclus dans cette formule.</p>
+        <a class="book" href="https://calendly.com/saindounaida/session-d-accompagnement-urbanisme-1h" target="_blank" rel="noopener">Réserver cette relecture</a>
+      </div>
+
+      <div class="lot">
+        <span class="lot-tag tag-pink">Écrit + 1h</span>
+        <h3>Relecture + rendez-vous</h3>
+        <p class="price">55€ <span>/ forfait</span></p>
+        <p>La relecture écrite ci-dessus, complétée par 1h en visio pour qu'on discute ensemble de mes retours et que tu puisses poser tes questions.</p>
+        <a class="book" href="https://calendly.com/saindounaida/session-d-accompagnement-urbanisme-1h" target="_blank" rel="noopener">Réserver ce forfait</a>
+      </div>
+
+      <div class="lot">
+        <span class="lot-tag tag-sky">1h visio</span>
+        <h3>Préparation à la soutenance</h3>
+        <p class="price">25€ <span>/ session</span></p>
+        <p>Tu me présentes ta soutenance à l'oral, comme si j'étais ton jury. Retour sur le fond (clarté, réponses aux questions probables) et sur la forme (rythme, aisance).</p>
+        <a class="book" href="https://calendly.com/saindounaida/session-d-accompagnement-urbanisme-1h" target="_blank" rel="noopener">Réserver cette préparation</a>
+      </div>
+
+      <div class="lot featured">
+        <span class="lot-tag tag-pink">3 mois</span>
+        <h3>Suivi mémoire complet</h3>
+        <p class="price">250€ <span>/ forfait</span></p>
+        <p>Un accompagnement dans la durée, du début à la fin de ton mémoire :</p>
+        <ul>
+          <li>3 rendez-vous en visio d'1h (cadrage → structure → finalisation)</li>
+          <li>2 relectures écrites, aux moments de ton choix</li>
+          <li>Support par message entre les rendez-vous, réponse sous 48h</li>
+        </ul>
+        <p class="note">Hors forfait : relecture ou RDV supplémentaire facturés au tarif normal (25€/h ou 40€ la relecture).</p>
+        <a class="book" href="https://calendly.com/saindounaida/session-d-accompagnement-urbanisme-1h" target="_blank" rel="noopener">Réserver ce suivi</a>
+      </div>
+
+    </div>
+
+    <div class="paiement">
+      <div class="picto">💳</div>
+      <p><strong>Comment se passe le paiement ?</strong><br>
+      Une fois ta demande reçue via le formulaire, je te recontacte pour caler le créneau. Le paiement se fait ensuite par Lydia ou PayPal, avant la session, pour confirmer la réservation.</p>
+    </div>
+
+    <div class="webinaire">
+      <div>
+        <h3>🎙️ Webinaire — l'évitement résidentiel</h3>
+        <p>Un format groupe pour comprendre comment et pourquoi les habitants quittent certains quartiers. Prévu à la rentrée de septembre — date et tarif (prix libre, dès 10€) bientôt confirmés.</p>
+      </div>
+      <a href="https://www.tiktok.com/@permisoupas" class="btn btn-ghost" target="_blank" rel="noopener" style="border-color:var(--ink);">Suivre l'annonce</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a href="#" class="logo"><span class="logo-dot"></span>Urbanissime</a>
+      <div class="links">
+        <a href="https://www.tiktok.com/@permisoupas" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://calendly.com/saindounaida/session-d-accompagnement-urbanisme-1h" target="_blank" rel="noopener">Réserver</a>
+        <a href="https://form.jotform.com/262283042213042" target="_blank" rel="noopener">Podcast</a>
       </div>
     </div>
-  </header>
+    <p class="copy">Urbanissime — accompagnement individuel en urbanisme. Réponses sous 48h.</p>
+  </div>
+</footer>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="chip"><span class="dot"></span> Décoratrice événementielle • Diplômée en événementiel</span>
-
-          <h1>Des décors qui font <span style="background:linear-gradient(135deg,var(--rose),var(--saumon),var(--jaune)); -webkit-background-clip:text; background-clip:text; color:transparent;">vibrer</span> vos moments les plus précieux.</h1>
-
-          <p>
-            Je conçois des ambiances sur-mesure, élégantes et lumineuses, pour transformer votre événement en souvenir inoubliable.
-            De la première idée à l’installation finale, je vous accompagne avec une organisation rassurante et un œil décoratif exigeant.
-          </p>
-
-          <div class="badges">
-            <span class="tag rose">Rose</span>
-            <span class="tag">Saumon</span>
-            <span class="tag jaune">Jaune</span>
-            <span class="tag vert">Vert pâle</span>
-            <span class="tag">Scénographie</span>
-          </div>
-
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
-            <a class="btn primary" href="#prestations">Découvrir mes prestations</a>
-            <a class="btn" href="mailto:saindounaida@gmail.com?subject=Demande%20de%20devis%20-%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle">
-              Envoyer un email
-            </a>
-          </div>
-
-          <div class="kpis">
-            <div class="kpi">
-              <b>Design sur-mesure</b>
-              <span>Une déco harmonieuse et fidèle à votre style.</span>
-            </div>
-            <div class="kpi">
-              <b>Installation & mise en scène</b>
-              <span>Je gère les détails le jour J pour que vous profitiez.</span>
-            </div>
-            <div class="kpi">
-              <b>Effet “waouh”</b>
-              <span>Ambiance émotive, photogénique et premium.</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="Aperçu décoration événementielle">
-          <div class="hero-photo" role="img" aria-label="Décoration événementielle élégante"></div>
-          <div class="hero-float">
-            <div class="heart" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M12 21s-7-4.7-9.5-9.2C.5 8.1 2.5 5 6 5c2 0 3.3 1.1 4 2.1C10.7 6.1 12 5 14 5c3.5 0 5.5 3.1 3.5 6.8C19 16.3 12 21 12 21Z" fill="white" opacity=".95"/>
-              </svg>
-            </div>
-            <div>
-              <b>Diplômée en événementiel</b>
-              <span>Écoute, moodboard, planification, scénographie & finitions.</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- PRESTATIONS -->
-    <section id="prestations">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Prestations</h2>
-            <p>Chaque formule s’adapte à votre budget, votre lieu et l’ambiance souhaitée. Objectif : un décor cohérent et “photo-ready”.</p>
-          </div>
-          <span class="chip"><span class="dot"></span> Devis rapide • Réponse sous 24–48h</span>
-        </div>
-
-        <div class="grid3">
-          <article class="card service">
-            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1529634892931-bfd1d9f4c6f0?auto=format&fit=crop&w=1400&q=80');"></div>
-            <div class="body">
-              <h3>Mariages</h3>
-              <p>Une scénographie élégante qui raconte votre histoire.</p>
-              <ul>
-                <li>Arche, cérémonie, allées, chaises</li>
-                <li>Centre de table, plan de table, photobooth</li>
-                <li>Palette couleurs, fleurs, bougies, textiles</li>
-              </ul>
-              <div class="tagrow">
-                <span class="tag rose">Romantique</span>
-                <span class="tag jaune">Lumineux</span>
-                <span class="tag">Haut de gamme</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card service">
-            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1400&q=80');"></div>
-            <div class="body">
-              <h3>Anniversaires</h3>
-              <p>Une ambiance festive et joyeuse, pensée pour les photos.</p>
-              <ul>
-                <li>Décor de fond, ballons, guirlandes</li>
-                <li>Sweet table / candy bar</li>
-                <li>Thème & personnalisation</li>
-              </ul>
-              <div class="tagrow">
-                <span class="tag jaune">Festif</span>
-                <span class="tag">Photogénique</span>
-                <span class="tag vert">Douceur</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card service">
-            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1400&q=80');"></div>
-            <div class="body">
-              <h3>Baby showers</h3>
-              <p>Un décor tendre, lumineux et délicat pour célébrer bébé.</p>
-              <ul>
-                <li>Arche ballons, panneaux, urne, jeux</li>
-                <li>Centre de table, vaisselle & textiles</li>
-                <li>Ambiance pastel & détails soignés</li>
-              </ul>
-              <div class="tagrow">
-                <span class="tag vert">Pastel</span>
-                <span class="tag rose">Délicat</span>
-                <span class="tag">Sur-mesure</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card service">
-            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1528460033278-a6ba57020470?auto=format&fit=crop&w=1400&q=80');"></div>
-            <div class="body">
-              <h3>EVJF</h3>
-              <p>Une déco glamour, fun et mémorable.</p>
-              <ul>
-                <li>Photobooth, accessoires, déco table</li>
-                <li>Ambiance chic & pétillante</li>
-                <li>Options “surprise” & personnalisation</li>
-              </ul>
-              <div class="tagrow">
-                <span class="tag rose">Glam</span>
-                <span class="tag jaune">Pétillant</span>
-                <span class="tag">Fun</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card service">
-            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1400&q=80');"></div>
-            <div class="body">
-              <h3>Événements festifs</h3>
-              <p>Soirées, fiançailles, garden party…</p>
-              <ul>
-                <li>Ambiance, éclairage, fleurs, textures</li>
-                <li>Mise en scène et harmonisation du lieu</li>
-                <li>Décors “wow” pour vos invités</li>
-              </ul>
-              <div class="tagrow">
-                <span class="tag">Scénographie</span>
-                <span class="tag vert">Harmonieux</span>
-                <span class="tag jaune">Chaleureux</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card service">
-            <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519222970733-f546218fa6d7?auto=format&fit=crop&w=1400&q=80');"></div>
-            <div class="body">
-              <h3>Options à la carte</h3>
-              <p>Pour compléter votre décor ou gagner du temps.</p>
-              <ul>
-                <li>Conception moodboard & palette couleurs</li>
-                <li>Installation / désinstallation</li>
-                <li>Conseils & stylisme</li>
-              </ul>
-              <div class="tagrow">
-                <span class="tag">Flexible</span>
-                <span class="tag rose">Premium</span>
-                <span class="tag">Pratique</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALERIE -->
-    <section id="galerie">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Galerie d’inspirations</h2>
-            <p>Photos libres de droits (Unsplash) pour refléter l’univers : élégance, lumière, couleurs et finitions.</p>
-          </div>
-          <a class="btn" href="#contact">Je veux ce style</a>
-        </div>
-
-        <div class="gallery" aria-label="Galerie photos">
-          <figure class="gitem span7">
-            <img loading="lazy" alt="Décoration de table élégante"
-                 src="https://images.unsplash.com/photo-1523438097201-512ae7d59c0f?auto=format&fit=crop&w=1600&q=80">
-            <figcaption class="label">Ambiance élégante</figcaption>
-          </figure>
-          <figure class="gitem span5">
-            <img loading="lazy" alt="Ballons et décor de fête"
-                 src="https://images.unsplash.com/photo-1528460033278-a6ba57020470?auto=format&fit=crop&w=1400&q=80">
-            <figcaption class="label">Arches & ballons</figcaption>
-          </figure>
-          <figure class="gitem span4">
-            <img loading="lazy" alt="Décoration florale"
-                 src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80">
-            <figcaption class="label">Fleurs & détails</figcaption>
-          </figure>
-          <figure class="gitem span8">
-            <img loading="lazy" alt="Décor de mariage lumineux"
-                 src="https://images.unsplash.com/photo-1529634892931-bfd1d9f4c6f0?auto=format&fit=crop&w=1800&q=80">
-            <figcaption class="label">Mariage lumineux</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- AVIS -->
-    <section id="avis">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Avis clients</h2>
-            <p>Exemples de témoignages (remplaçables par les vôtres).</p>
-          </div>
-          <a class="btn primary" href="#contact">Je veux mon devis</a>
-        </div>
-
-        <div class="grid3">
-          <div class="card">
-            <div class="review-top">
-              <div style="display:flex; align-items:center; gap:10px;">
-                <div class="avatar" aria-hidden="true"></div>
-                <div>
-                  <b>Sarah</b><div class="stars">★★★★★</div>
-                </div>
-              </div>
-              <span class="tag rose">Mariage</span>
-            </div>
-            <p>Une déco sublime, exactement ce qu’on imaginait (et même mieux). Tout était harmonieux et parfaitement installé.</p>
-          </div>
-
-          <div class="card">
-            <div class="review-top">
-              <div style="display:flex; align-items:center; gap:10px;">
-                <div class="avatar" aria-hidden="true"></div>
-                <div>
-                  <b>Nadia</b><div class="stars">★★★★★</div>
-                </div>
-              </div>
-              <span class="tag jaune">Anniversaire</span>
-            </div>
-            <p>Ambiance joyeuse et chic. Les invités ont pris des photos toute la soirée. Très pro et adorable.</p>
-          </div>
-
-          <div class="card">
-            <div class="review-top">
-              <div style="display:flex; align-items:center; gap:10px;">
-                <div class="avatar" aria-hidden="true"></div>
-                <div>
-                  <b>Imane</b><div class="stars">★★★★★</div>
-                </div>
-              </div>
-              <span class="tag vert">Baby shower</span>
-            </div>
-            <p>Tout était doux, lumineux, parfaitement dans le thème. Une vraie tranquillité de l’avoir le jour J.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- METHODE -->
-    <section id="methode">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Ma méthode (simple & rassurante)</h2>
-            <p>Un accompagnement clair, pour une organisation fluide et un rendu final parfaitement harmonieux.</p>
-          </div>
-        </div>
-
-        <div class="grid2 steps">
-          <div class="card step">
-            <h3>1) Échange & compréhension</h3>
-            <p>On parle de votre événement, vos envies, votre lieu, vos contraintes et votre budget.</p>
-          </div>
-          <div class="card step">
-            <h3>2) Moodboard & proposition</h3>
-            <p>Direction artistique : palette, matières, inspirations, éléments déco & mise en scène.</p>
-          </div>
-          <div class="card step">
-            <h3>3) Préparation & planification</h3>
-            <p>Timing, check-list, installation : tout est cadré pour avancer sereinement.</p>
-          </div>
-          <div class="card step">
-            <h3>4) Installation & effet “waouh”</h3>
-            <p>Le jour J : mise en place, ajustements, finitions et rendu photo-ready.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Contact & devis</h2>
-            <p>Dites-moi la date, le lieu, le type d’événement et l’ambiance souhaitée. Je vous réponds rapidement.</p>
-          </div>
-          <span class="chip"><span class="dot"></span> Email + téléphone affichés • Réponse rapide</span>
-        </div>
-
-        <div class="contact">
-          <div class="card">
-            <h3>Coordonnées</h3>
-            <p>Choisissez le moyen le plus simple :</p>
-
-            <div style="display:grid; gap:10px; margin-top:12px;">
-              <a class="link" href="mailto:saindounaida@gmail.com?subject=Demande%20de%20devis%20-%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle">
-                <div class="pill" aria-hidden="true">📧</div>
-                <div>
-                  <b>saindounaida@gmail.com</b>
-                  <span>Envoyer un message (devis, questions, disponibilités)</span>
-                </div>
-              </a>
-
-              <a class="link" href="tel:+33767058731">
-                <div class="pill" aria-hidden="true">📞</div>
-                <div>
-                  <b>07 67 05 87 31</b>
-                  <span>Appel / WhatsApp</span>
-                </div>
-              </a>
-            </div>
-
-            <div class="tagrow" style="margin-top:14px">
-              <span class="tag">Mariage</span>
-              <span class="tag">Anniversaire</span>
-              <span class="tag">Baby shower</span>
-              <span class="tag">EVJF</span>
-              <span class="tag">Événement festif</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Pré-remplir un email (rapide)</h3>
-            <p>Ce formulaire ouvre votre messagerie avec un message prêt à envoyer.</p>
-
-            <form id="quoteForm">
-              <div class="form-row">
-                <div>
-                  <label for="name">Nom</label>
-                  <input id="name" name="name" placeholder="Votre nom" autocomplete="name" />
-                </div>
-                <div>
-                  <label for="phone">Téléphone</label>
-                  <input id="phone" name="phone" placeholder="Votre numéro" autocomplete="tel" />
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div>
-                  <label for="type">Type d’événement</label>
-                  <input id="type" name="type" placeholder="Mariage, anniversaire, baby shower..." />
-                </div>
-                <div>
-                  <label for="date">Date</label>
-                  <input id="date" name="date" placeholder="JJ/MM/AAAA" />
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div>
-                  <label for="city">Lieu / Ville</label>
-                  <input id="city" name="city" placeholder="Ville + lieu (si connu)" />
-                </div>
-                <div>
-                  <label for="guests">Nombre d’invités</label>
-                  <input id="guests" name="guests" placeholder="Ex : 40" inputmode="numeric" />
-                </div>
-              </div>
-
-              <div>
-                <label for="style">Ambiance souhaitée</label>
-                <textarea id="style" name="style" placeholder="Décrivez votre style (couleurs, thème, inspirations, contraintes, budget indicatif...)"></textarea>
-              </div>
-
-              <button class="btn primary" type="submit">Ouvrir l’email prêt à envoyer</button>
-              <small style="color:var(--muted); line-height:1.5;">
-                Astuce : ajoutez des photos d’inspiration dans l’email pour aller plus vite.
-              </small>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="wrap foot">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:14px;"></div>
-          <div>
-            <div style="font-weight:900; color:var(--encre);">Décoration Événementielle</div>
-            <div style="font-size:13px;">© <span id="year"></span> • Tous droits réservés</div>
-          </div>
-        </div>
-
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="mailto:saindounaida@gmail.com">Email</a>
-          <a class="btn" href="tel:+33767058731">Téléphone</a>
-          <a class="btn" href="#top">Haut de page</a>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <!-- WhatsApp floating button -->
-  <a class="wa-fab"
-     href="https://wa.me/33767058731?text=Bonjour%20!%20Je%20souhaite%20un%20devis%20pour%20une%20d%C3%A9coration%20%C3%A9v%C3%A9nementielle%20(type%2C%20date%2C%20lieu%2C%20invit%C3%A9s)."
-     target="_blank" rel="noopener">
-    <div class="wa-badge" aria-hidden="true">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M20 11.6a8.4 8.4 0 0 1-12.6 7.3L4 20l1.2-3.2A8.4 8.4 0 1 1 20 11.6Z" stroke="rgba(31,36,48,.35)" stroke-width="1.6" fill="white" opacity=".85"/>
-        <path d="M10.2 9.2c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.7 1.6c.1.3.1.6-.1.8l-.4.5c.5 1 1.4 1.7 2.4 2.1l.4-.4c.2-.2.5-.2.8-.1l1.5.7c.3.1.4.3.4.5v.6c0 .2 0 .5-.5.7-.5.2-1.6.5-3.4-.3-1.8-.8-3.2-2.4-3.8-4.2-.6-1.8.1-2.9.3-3.4Z" fill="rgba(31,36,48,.45)"/>
-      </svg>
-    </div>
-    <div>
-      <b>WhatsApp</b>
-      <span>Devis rapide</span>
-    </div>
-  </a>
-
-  <script>
-    // Année
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Surbrillance du lien actif selon la section visible
-    const links = Array.from(document.querySelectorAll(".navlink"));
-    const sections = links
-      .map(a => document.querySelector(a.getAttribute("href")))
-      .filter(Boolean);
-
-    const setActive = (id) => {
-      links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
-    };
-
-    const io = new IntersectionObserver((entries) => {
-      // On choisit la section la plus visible
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible?.target?.id) setActive(visible.target.id);
-    }, { rootMargin: "-45% 0px -45% 0px", threshold: [0.15, 0.25, 0.35, 0.5, 0.65] });
-
-    sections.forEach(sec => io.observe(sec));
-
-    // Form => mailto pré-rempli
-    const form = document.getElementById("quoteForm");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const v = (id) => (document.getElementById(id).value || "").trim();
-
-      const name   = v("name");
-      const phone  = v("phone");
-      const type   = v("type");
-      const date   = v("date");
-      const city   = v("city");
-      const guests = v("guests");
-      const style  = v("style");
-
-      const subject = `Demande de devis - ${type || "Décoration événementielle"}`;
-      const body =
-`Bonjour,
-
-Je souhaite un devis pour :
-- Type d’événement : ${type || "(à préciser)"}
-- Date : ${date || "(à préciser)"}
-- Lieu / Ville : ${city || "(à préciser)"}
-- Nombre d’invités : ${guests || "(à préciser)"}
-
-Mes coordonnées :
-- Nom : ${name || "(à préciser)"}
-- Téléphone : ${phone || "(à préciser)"}
-
-Ambiance / détails :
-${style || "(décrivez ici vos envies, couleurs, thème, budget indicatif, contraintes du lieu…)"}
-
-Merci !`;
-
-      const mailto = `mailto:saindounaida@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
-    });
-  </script>
 </body>
 </html>
